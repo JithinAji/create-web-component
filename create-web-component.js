@@ -3,10 +3,21 @@ Creted by JIthin Aji
 Use this to create the folders and files for a basic typescript web component 
  */
 
+const { ADDRGETNETWORKPARAMS } = require("dns");
 var fs = require("fs");
 
+let componentName = "";
+
 const args = process.argv.slice(2);
-let componentName = args[0];
+
+args.forEach((arg) => {
+  if (arg.indexOf("name=") == 0) {
+    componentName = arg.replace("name=", "");
+    console.log(arg);
+  }
+});
+
+if (componentName === "") componentName = args[0];
 
 if (!fs.existsSync(`./${componentName}/ts`)) {
   fs.mkdirSync(`./${componentName}`);
@@ -14,7 +25,6 @@ if (!fs.existsSync(`./${componentName}/ts`)) {
 }
 
 let tsFileName = componentName.substr(componentName.indexOf("-") + 1);
-console.log(componentName);
 
 function capitalize(input) {
   var words = input.split("-");
