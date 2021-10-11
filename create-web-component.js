@@ -3,8 +3,7 @@ Creted by JIthin Aji
 Use this to create the folders and files for a basic typescript web component 
  */
 
-const { ADDRGETNETWORKPARAMS } = require("dns");
-var fs = require("fs");
+const fs = require("fs");
 
 let componentName = "";
 
@@ -27,8 +26,8 @@ if (!fs.existsSync(`./${componentName}/ts`)) {
 let tsFileName = componentName.substr(componentName.indexOf("-") + 1);
 
 function capitalize(input) {
-  var words = input.split("-");
-  var CapitalizedWords = [];
+  let words = input.split("-");
+  let CapitalizedWords = [];
   words.forEach((element) => {
     CapitalizedWords.push(
       element[0].toUpperCase() + element.slice(1, element.length)
